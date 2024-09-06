@@ -1,5 +1,6 @@
 ---
-import Header from '../components/Header.astro'
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
 const {frontmatter} = Astro.props;
 ---
 
@@ -14,7 +15,7 @@ const {frontmatter} = Astro.props;
 	</head>
 	<body>
         <Header folderpath = {['folder1','folder2','folder3']}/>
-		<slot name="sidebar"/>
+		<Sidebar parentFolder="Parent Folder" contents={['content1','content2','content3']}/>
         <slot name="content"/>
 	</body>
 </html>

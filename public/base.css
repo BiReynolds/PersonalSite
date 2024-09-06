@@ -5,10 +5,10 @@
 }
 
 .Header {
-    position:absolute;
+    position:sticky;
     top:0vh;
     left:0vw;
-    height:5vh; 
+    height:10vh; 
     width:100vw;
     background-color:aquamarine; 
     font-size:3vh; 
@@ -19,4 +19,24 @@
 .Header *{
     background-color:inherit;
     float:left;
+}
+
+.Sidebar {
+    position:sticky;
+    padding-left: 1vw;
+    top:10vh;
+    left:0vw;
+    height:90vh;
+    width: 10vw;
+    background-color:aqua;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    align-content:flex-start
+}
+
+.Sidebar *{
+    background-color:inherit;
+}
+
+.Sidebar ul{
+    padding-inline-start: 2vh;
 }

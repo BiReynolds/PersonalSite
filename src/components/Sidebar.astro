@@ -1,0 +1,11 @@
+---
+const { parentFolder, contents } = Astro.props;
+---
+<div class="Sidebar">
+    <h4>{parentFolder}</h4>
+    <ul>
+        {contents.map((link) => (
+            <li>{link}</li>
+            ))}
+    </ul>
+</div>
