@@ -2,6 +2,12 @@
 import Header from '../components/Header.astro';
 import Sidebar from '../components/Sidebar.astro';
 const {frontmatter} = Astro.props;
+
+var folderPath = frontmatter.file.split('/');
+var parentFolder = folderPath[folderPath.length-2];
+let contents = await Astro.glob('../pages/practiceFolder/*.md');
+
+console.log(contents);
 ---
 
 <html lang="en">
@@ -14,8 +20,8 @@ const {frontmatter} = Astro.props;
 		<title>{frontmatter.title}</title>
 	</head>
 	<body>
-        <Header folderpath = {['folder1','folder2','folder3']}/>
-		<Sidebar parentFolder="Parent Folder" contents={['content1','content2','content3']}/>
+        <Header folderpath = {folderPath.slice(5)}/>
+		<Sidebar parentFolder= {parentFolder} contents={contents}/>
         <slot name="content"/>
 	</body>
 </html>

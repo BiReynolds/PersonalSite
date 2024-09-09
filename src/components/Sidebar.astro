@@ -2,10 +2,11 @@
 const { parentFolder, contents } = Astro.props;
 ---
 <div class="Sidebar">
-    <h4>{parentFolder}</h4>
+    <br/>
+    <h2>{parentFolder}</h4>
     <ul>
         {contents.map((link) => (
-            <li>{link}</li>
+            <li><a href={link.url}>{link.frontmatter.title}</a></li>
             ))}
     </ul>
 </div>
