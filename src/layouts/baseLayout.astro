@@ -1,13 +1,25 @@
 ---
 import Header from '../components/Header.astro';
 import Sidebar from '../components/Sidebar.astro';
+const activeFolders = ['practiceFolder'];
+
 const {frontmatter} = Astro.props;
 
 var folderPath = frontmatter.file.split('/');
 var parentFolder = folderPath[folderPath.length-2];
-let contents = await Astro.glob('../pages/practiceFolder/*.md');
+var hub : Boolean;
 
-console.log(contents);
+switch (parentFolder) {
+	case 'pages':
+		var contents: any[] = activeFolders;
+		hub = true;
+		break;
+	case 'practiceFolder':
+		let raw_contents = await Astro.glob('../pages/practiceFolder/*.md');
+		var contents = raw_contents.slice(1).map((content)=>(content.frontmatter.title))
+		hub=false;
+		break;
+}
 ---
 
 <html lang="en">
@@ -20,8 +32,8 @@ console.log(contents);
 		<title>{frontmatter.title}</title>
 	</head>
 	<body>
-        <Header folderpath = {folderPath.slice(5)}/>
-		<Sidebar parentFolder= {parentFolder} contents={contents}/>
-        <slot name="content"/>
+        <Header folderpath = {folderPath.slice(5,-1)} title = {frontmatter.title}/>
+		<Sidebar hub = {hub} parentFolder= {parentFolder} contents={contents}/>
+        <slot class = "content" name="content"/>
 	</body>
 </html>

@@ -1,9 +1,10 @@
 ---
-const {folderpath} = Astro.props;
+const {title, folderpath} = Astro.props;
 ---
 <div class="Header">
     <a href="/PersonalSite">BiReynolds</a>
     {folderpath.map((folder)=> (
         <pre> -> </pre><a href="/PersonalSite">{folder}</a>
     ))}
+    <pre> -> </pre><a href="/PersonalSite">{title}</a>
 </div>

@@ -40,3 +40,9 @@
 .Sidebar ul{
     padding-inline-start: 3vh;
 }
+
+.content {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+}

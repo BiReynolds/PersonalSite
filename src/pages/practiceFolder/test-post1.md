@@ -1,5 +1,4 @@
 ---
 layout: ../../layouts/baseLayout.astro
-title: practiceFolder hub
+title: test1
 ---
-# Placeholder

@@ -1,12 +1,14 @@
 ---
-const { parentFolder, contents } = Astro.props;
+const { hub, parentFolder, contents } = Astro.props;
 ---
 <div class="Sidebar">
     <br/>
     <h2>{parentFolder}</h4>
-    <ul>
+    {hub ? <ul>
         {contents.map((link) => (
-            <li><a href={link.url}>{link.frontmatter.title}</a></li>
+            <li><a href={parentFolder+'/'+link}>{link}</a></li>
             ))}
+    </ul> : <ul>
+        bleh
     </ul>
 </div>
