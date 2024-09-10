@@ -5,7 +5,8 @@ const activeFolders = ['practiceFolder'];
 
 const {frontmatter} = Astro.props;
 
-var folderPath = frontmatter.file.split('/').slice(5,-1);
+var folderPath = frontmatter.file.split('/');
+folderPath = folderPath.slice(folderPath.indexOf('pages')+1,-1);
 folderPath.unshift('PersonalSite')
 var parentFolder = folderPath[folderPath.length-1];
 var hub : Boolean;
@@ -36,6 +37,8 @@ switch (parentFolder) {
 	<body>
         <Header hub = {hub} folderPath = {folderPath} title = {frontmatter.title}/>
 		<Sidebar hub = {hub} folderPath = {folderPath} parentFolder= {parentFolder} contents={contents}/>
-        <slot class = "content" name="content"/>
+		<div class="Content">
+        	<slot><p>Not good dude</p></slot>
+		</div>
 	</body>
 </html>
