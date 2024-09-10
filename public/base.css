@@ -7,7 +7,7 @@
 
 .Content {
     position:absolute;
-    left: 10vw;
+    left: 0;
     top: 10vh;
     width: 88vw;
     height: 88vh;
@@ -40,7 +40,7 @@
     position:absolute;
     padding: 1vw 0 0 1.5vw;
     top:10vh;
-    left:0vw;
+    left:90vw;
     height:90vh;
     width: 8.5vw;
     background-color:aqua;

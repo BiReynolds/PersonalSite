@@ -1,7 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Sidebar from '../components/Sidebar.astro';
-const activeFolders = ['practiceFolder'];
+const activeFolders = ['folder with a space'];
 
 const {frontmatter} = Astro.props;
 
@@ -12,8 +12,8 @@ var parentFolder = folderPath[folderPath.length-1];
 var hub : Boolean;
 
 switch (parentFolder) {
-	case 'practiceFolder':
-		var contents = await Astro.glob('../pages/practiceFolder/*.md');
+	case 'folder with a space':
+		var contents = await Astro.glob('../pages/folder with a space/*.md');
 		contents = contents.slice(1)
 		hub=false;
 		break;
@@ -35,7 +35,7 @@ switch (parentFolder) {
 		<title>{frontmatter.title}</title>
 	</head>
 	<body>
-        <Header hub = {hub} folderPath = {folderPath} title = {frontmatter.title}/>
+        <Header folderPath = {folderPath} title = {frontmatter.title}/>
 		<Sidebar hub = {hub} folderPath = {folderPath} parentFolder= {parentFolder} contents={contents}/>
 		<div class="Content">
         	<slot><p>Not good dude</p></slot>
