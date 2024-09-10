@@ -1,14 +1,17 @@
 ---
-const { hub, parentFolder, contents } = Astro.props;
+const { hub, folderPath, parentFolder, contents } = Astro.props;
+let stringFolderPath = folderPath.join('/')
 ---
 <div class="Sidebar">
     <br/>
     <h2>{parentFolder}</h4>
     {hub ? <ul>
         {contents.map((link) => (
-            <li><a href={parentFolder+'/'+link}>{link}</a></li>
+            <li><a href={stringFolderPath+'/'+link}>{link}</a></li>
             ))}
     </ul> : <ul>
-        bleh
-    </ul>
+        {contents.map((link) => (
+            <li><a href={link.url}>{link.frontmatter.title}</a></li>
+            ))}
+    </ul>}
 </div>

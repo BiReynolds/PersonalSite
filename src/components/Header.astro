@@ -1,10 +1,11 @@
 ---
-const {title, folderpath} = Astro.props;
+const {hub, title, folderPath} = Astro.props;
+console.log(folderPath.slice(0,folderPath.indexOf('practiceFolder')+1).join('/'));
 ---
 <div class="Header">
-    <a href="/PersonalSite">BiReynolds</a>
-    {folderpath.map((folder)=> (
-        <pre> -> </pre><a href="/PersonalSite">{folder}</a>
+    <pre>BiReynolds</pre>
+    {folderPath.map((folder)=> (
+        <pre> -> </pre><a href={'/'+folderPath.slice(0,folderPath.indexOf(folder)+1).join('/')}>{folder}</a>
     ))}
-    <pre> -> </pre><a href="/PersonalSite">{title}</a>
+    <pre> -> </pre>{title}
 </div>

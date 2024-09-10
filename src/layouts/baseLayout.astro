@@ -5,19 +5,21 @@ const activeFolders = ['practiceFolder'];
 
 const {frontmatter} = Astro.props;
 
-var folderPath = frontmatter.file.split('/');
-var parentFolder = folderPath[folderPath.length-2];
+var folderPath = frontmatter.file.split('/').slice(5,-1);
+folderPath.unshift('PersonalSite')
+var parentFolder = folderPath[folderPath.length-1];
 var hub : Boolean;
 
 switch (parentFolder) {
-	case 'pages':
+	case 'practiceFolder':
+		var contents = await Astro.glob('../pages/practiceFolder/*.md');
+		contents = contents.slice(1)
+		hub=false;
+		break;
+	default:
+		parentFolder = 'PersonalSite';
 		var contents: any[] = activeFolders;
 		hub = true;
-		break;
-	case 'practiceFolder':
-		let raw_contents = await Astro.glob('../pages/practiceFolder/*.md');
-		var contents = raw_contents.slice(1).map((content)=>(content.frontmatter.title))
-		hub=false;
 		break;
 }
 ---
@@ -32,8 +34,8 @@ switch (parentFolder) {
 		<title>{frontmatter.title}</title>
 	</head>
 	<body>
-        <Header folderpath = {folderPath.slice(5,-1)} title = {frontmatter.title}/>
-		<Sidebar hub = {hub} parentFolder= {parentFolder} contents={contents}/>
+        <Header hub = {hub} folderPath = {folderPath} title = {frontmatter.title}/>
+		<Sidebar hub = {hub} folderPath = {folderPath} parentFolder= {parentFolder} contents={contents}/>
         <slot class = "content" name="content"/>
 	</body>
 </html>
