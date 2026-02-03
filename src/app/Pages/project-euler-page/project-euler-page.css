@@ -1,0 +1,27 @@
+:host {
+  background-color: black;
+  color: white;
+  font-family: FreeMono, monospace;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+app-landing-left {
+  height: 100%;
+  max-width: 20%;
+  flex: 1 1 auto;
+}
+
+app-content-frame {
+  height: 100%;
+  max-width: 60%;
+  flex: 3 1 auto;
+}
+
+app-landing-right {
+  height: 100%;
+  max-width: 20%;
+  flex: 1 1 auto;
+}

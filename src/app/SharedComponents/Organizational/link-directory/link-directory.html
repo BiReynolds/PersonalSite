@@ -1,0 +1,10 @@
+@let linkLists = LinkLists();
+<ng-content>
+<ul>
+@for (linkList of linkLists; track $index) {
+<li><app-link-list Name="{{ SectionNames()[$index] }}" [Links]="LinkLists()[$index]"></app-link-list></li>
+} @empty {
+<p>blah</p>
+}
+</ul>
+</ng-content>

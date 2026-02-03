@@ -1,0 +1,11 @@
+* {
+  width: 75%;
+  height: auto;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+

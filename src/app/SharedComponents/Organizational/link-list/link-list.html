@@ -1,0 +1,10 @@
+<ng-content>
+<h4>{{ Name() }}</h4>
+<ul>
+@for (link of Links(); track link.Name) {
+<li><a href="{{ link.Url }}">{{ link.Name }}</a></li>
+} @empty {
+<p>where are the projects???</p>
+}
+</ul>
+</ng-content>

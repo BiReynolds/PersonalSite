@@ -1,0 +1,10 @@
+@for (row of Model().GridSquares; track $index; let gridRow = $index) {
+  @for (square of Model().GridSquares; track $index; let gridCol = $index) {
+  <app-grid-square #GridSquare
+    style="grid-column:{{gridCol + 1}} / {{gridCol + 2}};
+    grid-row:{{gridRow + 1}} / {{gridRow + 2}};
+    width: 100%;
+    height: 100%;">
+    </app-grid-square>
+  }
+}
